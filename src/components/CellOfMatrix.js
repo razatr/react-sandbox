@@ -23,12 +23,9 @@ class Cell extends Component {
             height: HEIGHT_OF_CELL,
             marginRight: '5px',
             marginBottom: '5px'
-        };
+        }
 
-        const { position } = this.props;
-
-        const value = this.props.value.get(position)
-        console.log('VALUE - ', value)
+        const value = this.props.value
 
         return (
             <input style={style} type="text" onChange={this.handleChange} />
@@ -37,5 +34,5 @@ class Cell extends Component {
 }
 
 export default connect((state) => ({
-    value: state.matrix.get('values')
+    value: state.matrix.getIn(['values', 'position'])
 }))(Cell)

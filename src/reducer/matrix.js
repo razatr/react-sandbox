@@ -6,7 +6,7 @@ const MatrixRecord = Record({
         columns: 0,
         strings: 0
     },
-    values: []
+    values: new List([])
 })
 
 const defaultState = new MatrixRecord()
