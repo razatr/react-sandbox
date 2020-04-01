@@ -1,15 +1,16 @@
-import React from 'react'
-import Article from './Article'
-import Header from './Header'
+import React, { Component } from 'react'
+import Settings from './Settings'
+import Matrix from './Matrix'
 
-function App() {
-    return (
-      <div className="App">
-        <Header />
-        <span>Finaly add sandbox for my first React App</span>
-        <Article />
-      </div>
-    );
+class App extends Component {
+    render() {
+        return (
+            <React.Fragment>
+                <Settings />
+                <Matrix />
+            </React.Fragment>
+        )
+    }
 }
 
-export default App;
+export default App
