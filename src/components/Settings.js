@@ -21,10 +21,13 @@ class Settings extends Component {
                 return (t("This matrix is very large") + MAX_SIZE)
             case 'notInt':
                 return (t("Number is not Int"))
+            default:
+                return (t("Unknown error"))
         }
+
     }
 
-    handleChangeColunmn = ({ target: { value } }) => {
+    handleChange = (value, type) => {
         if (isNaN(parseInt(value)) && value !== '')
             this.setState({
                 error: {
@@ -38,28 +41,21 @@ class Settings extends Component {
                 }
             })
         else {
-            this.props.dispatch(changeColumnsNumber(value))
-            this.setState({
-                error: false
-            })
-        }
-    }
+            let action = {}
+            switch(type){
+                case 'columns':
+                    action = changeColumnsNumber(value)
+                    break
 
-    handleChangeStrings = ({ target: { value } }) => {
-        if (isNaN(parseInt(value)) && value !== '')
-            this.setState({
-                error: {
-                    type: 'notInt'
-                }
-            })
-        else if (parseInt(value) > MAX_SIZE)
-            this.setState({
-                error: {
-                    type: 'over'
-                }
-            })
-        else {
-            this.props.dispatch(changeStringsNumber(value))
+                case 'strings':
+                    action = changeStringsNumber(value)
+                    break
+
+                default:
+                    return
+            }
+            console.log('ACTION -', action)
+            this.props.dispatch(action)
             this.setState({
                 error: false
             })
@@ -87,8 +83,8 @@ class Settings extends Component {
             <React.Fragment>
                 <div style={{ lineHeight: 0 }}>
                     <span>{t('Input size')}</span>
-                    <input type="text" style={style} onChange={this.handleChangeColunmn} />
-                    <input type="text" style={style} onChange={this.handleChangeStrings} />
+                    <input type="text" style={style} onChange={({ target: { value } } ) => this.handleChange(value, 'columns')} />
+                    <input type="text" style={style} onChange={({ target: { value } } ) => this.handleChange(value, 'strings')} />
                     <span style={errorStyle}>{errorText}</span>
                 </div>
             </React.Fragment>

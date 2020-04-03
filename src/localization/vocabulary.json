@@ -6,7 +6,8 @@
             "This matrix is very large": "The matrix is too large. Do not enter a size greater than -",
             "Number is not Int": "A non-integer number was entered. Enter an integer",
             "Result for WolframAlpha": "Expression of this matrix for WolframAlpha",
-            "No matrix yet": "No matrix yet"
+            "No matrix yet": "No matrix yet",
+            "Unknown error": "Unknown error"
         }
     },
     "ru":{
@@ -16,7 +17,8 @@
             "This matrix is very large": "Матрица слишком большая. Не вводите размер не более чем - ",
             "Number is not Int": "Введено не целое число. Введите целое число",
             "Result for WolframAlpha": "Выражение этой матрицы для WolframAlpha",
-            "No matrix yet": "Пока матрицы нет"
+            "No matrix yet": "Пока матрицы нет",
+            "Unknown error": "Неизвестная ошибка"
         }
     }
 }

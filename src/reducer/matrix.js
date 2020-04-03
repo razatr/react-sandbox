@@ -29,6 +29,7 @@ export default (state = defaultState, action) => {
                     .setIn(['size', 'columns'], 0)
                     .set('values', new List([]))
             }
+            break
 
         case CHANGE_STRINGS_NUMBER:
             if (payload) {
@@ -43,12 +44,16 @@ export default (state = defaultState, action) => {
                     .setIn(['size', 'strings'], 0)
                     .set('values', new List([]))
             }
+            break
 
         case SET_SELL_VALUE:
             if(payload.number) {
                 return state
                     .set('values', state.get('values').set(payload.index, payload.number))
             }
+            break
+        
+        default:
+            return state
     }
-    return state
 }

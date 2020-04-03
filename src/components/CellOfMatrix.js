@@ -25,7 +25,7 @@ class Cell extends Component {
             marginBottom: '5px'
         }
 
-        const value = this.props.value
+        //const value = this.props.value
 
         return (
             <input style={style} type="text" placeholder="0" onChange={this.handleChange} />
