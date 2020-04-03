@@ -28,7 +28,7 @@ class Cell extends Component {
         const value = this.props.value
 
         return (
-            <input style={style} type="text" onChange={this.handleChange} />
+            <input style={style} type="text" placeholder="0" onChange={this.handleChange} />
         )
     }
 }

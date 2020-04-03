@@ -14,8 +14,9 @@ class Matrix extends Component {
 
         const containerStyle = {
             width: (WIDTH_OF_CELL + 9) * columns,
-            height: (HEIGHT_OF_CELL + 11) * strings,
-            lineHeight: 0
+            height: columns && (HEIGHT_OF_CELL + 11) * strings,
+            lineHeight: 0,
+            paddingLeft: '50px'
         }
 
         const body = new Array(parseInt(columns) * parseInt(strings))

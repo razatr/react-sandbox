@@ -3,4 +3,6 @@ export const CHANGE_STRINGS_NUMBER = 'CHANGE_STRINGS_NUMBER'
 export const SET_SELL_VALUE = 'SET_SELL_VALUE'
 
 export const WIDTH_OF_CELL = 40
-export const HEIGHT_OF_CELL = 20
+export const HEIGHT_OF_CELL = 25
+
+export const MAX_SIZE = 13

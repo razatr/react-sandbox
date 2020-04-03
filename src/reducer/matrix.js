@@ -16,12 +16,18 @@ export default (state = defaultState, action) => {
 
     switch (type) {
         case CHANGE_COLUMN_NUMBER:
+            console.log('Payload --- ', payload)
             if (payload) {
                 const strings = state.getIn(['size', 'strings'])
                 const valuesArr = new Array(payload * strings).fill(0)
                 return state
                     .setIn(['size', 'columns'], payload)
                     .set('values', new List(valuesArr))
+            }
+            if(payload === ''){
+                return state
+                    .setIn(['size', 'columns'], 0)
+                    .set('values', new List([]))
             }
 
         case CHANGE_STRINGS_NUMBER:
@@ -32,6 +38,12 @@ export default (state = defaultState, action) => {
                     .setIn(['size', 'strings'], payload)
                     .set('values', new List(valuesArr))
             }
+            if(payload === ''){
+                return state
+                    .setIn(['size', 'strings'], 0)
+                    .set('values', new List([]))
+            }
+
         case SET_SELL_VALUE:
             if(payload.number) {
                 return state
