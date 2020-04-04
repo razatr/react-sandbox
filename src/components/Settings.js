@@ -13,7 +13,7 @@ class Settings extends Component {
         }
     }
 
-    errorText(type){
+    errorText(type) {
         const { t } = this.props
 
         switch (type) {
@@ -42,7 +42,7 @@ class Settings extends Component {
             })
         else {
             let action = {}
-            switch(type){
+            switch (type) {
                 case 'columns':
                     action = changeColumnsNumber(value)
                     break
@@ -54,7 +54,6 @@ class Settings extends Component {
                 default:
                     return
             }
-            console.log('ACTION -', action)
             this.props.dispatch(action)
             this.setState({
                 error: false
@@ -83,8 +82,8 @@ class Settings extends Component {
             <React.Fragment>
                 <div style={{ lineHeight: 0 }}>
                     <span>{t('Input size')}</span>
-                    <input type="text" style={style} onChange={({ target: { value } } ) => this.handleChange(value, 'columns')} />
-                    <input type="text" style={style} onChange={({ target: { value } } ) => this.handleChange(value, 'strings')} />
+                    <input type="text" style={style} onChange={({ target: { value } }) => this.handleChange(value, 'columns')} />
+                    <input type="text" style={style} onChange={({ target: { value } }) => this.handleChange(value, 'strings')} />
                     <span style={errorStyle}>{errorText}</span>
                 </div>
             </React.Fragment>

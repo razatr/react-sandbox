@@ -6,6 +6,7 @@ i18n
     .use(initReactI18next) // if not using I18nextProvider
     .init({
         fallbackLng: 'ru',
+        lng: "ru",
         debug: true,
         resources: vocabulary,
 

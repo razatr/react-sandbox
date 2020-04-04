@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CellOfMatrix from './CellOfMatrix'
 import { WIDTH_OF_CELL, HEIGHT_OF_CELL } from '../constants'
 
 class Matrix extends Component {
-    static propTypes = {
-        store: PropTypes.object.isRequired
-    }
 
     render() {
         const { columns, strings } = this.props
@@ -22,11 +18,10 @@ class Matrix extends Component {
         const body = new Array(parseInt(columns) * parseInt(strings))
             .fill(0)
             .map((item, index) => {
-                if((index + 1) % columns === 0)
-                    return (<CellOfMatrix position={index} />)
-                return (<CellOfMatrix position={index} />)
+                if ((index + 1) % columns === 0)
+                    return (<CellOfMatrix position={index} key={index}/>)
+                return (<CellOfMatrix position={index} key={index}/>)
             })
-        console.log('BODY IS -', body)
         return (<React.Fragment>
             <div style={containerStyle}>
                 {body}
