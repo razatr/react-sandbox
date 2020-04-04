@@ -13,6 +13,19 @@ class Settings extends Component {
         }
     }
 
+    getAction(value, type){
+        switch (type) {
+            case 'columns':
+                return changeColumnsNumber(value)
+
+            case 'strings':
+                return changeStringsNumber(value)
+
+            default:
+                return
+        }
+    }
+
     errorText(type) {
         const { t } = this.props
 
@@ -28,7 +41,7 @@ class Settings extends Component {
     }
 
     handleChange = (value, type) => {
-        if (isNaN(parseInt(value)) && value !== '')
+        if ( value * 0 !== 0 && value !== '') //checking the value for an integer
             this.setState({
                 error: {
                     type: 'notInt'
@@ -41,20 +54,7 @@ class Settings extends Component {
                 }
             })
         else {
-            let action = {}
-            switch (type) {
-                case 'columns':
-                    action = changeColumnsNumber(value)
-                    break
-
-                case 'strings':
-                    action = changeStringsNumber(value)
-                    break
-
-                default:
-                    return
-            }
-            this.props.dispatch(action)
+            this.props.dispatch(this.getAction(value, type))
             this.setState({
                 error: false
             })
